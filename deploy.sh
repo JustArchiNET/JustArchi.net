@@ -14,16 +14,24 @@ SCRIPT_DIR="$(dirname "$SCRIPT_PATH")"
 
 cd "$SCRIPT_DIR"
 
+CURRENT_VERSION="$(git rev-parse HEAD)"
+
 echo "Pulling latest main version..."
-git pull origin main
+git pull origin main -q
 
-echo "Installing jekyll and bundler..."
-gem install bundler jekyll -q --conservative --silent
+NEW_VERSION="$(git rev-parse HEAD)"
 
-echo "Installing gems..."
-bundle install --quiet
+if [ -d "_site" ] && [ "$CURRENT_VERSION" = "$NEW_VERSION" ]; then
+    echo "No deployment needed."
+else
+    echo "Installing jekyll and bundler..."
+    gem install bundler jekyll -q --conservative --silent
 
-echo "Building website..."
-bundle exec jekyll build
+    echo "Installing gems..."
+    bundle install --quiet
+
+    echo "Building website..."
+    bundle exec jekyll build
+fi
 
 echo "All done! :3"
