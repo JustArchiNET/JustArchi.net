@@ -6,6 +6,7 @@ minimal_mistakes_skin_dark: "dark"
 locale: "en"
 title: JustArchi.net
 name: "JustArchi.net"
+repository: "JustArchiNET/JustArchi.net"
 description: >-
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
@@ -14,9 +15,12 @@ url: "JustArchi.net"
 logo: "/assets/images/tux.png"
 
 comments:
-  provider: "disqus"
-  disqus:
-    shortname: "domeradzki"
+  provider: "giscus"
+  giscus:
+    repo_id: "MDEwOlJlcG9zaXRvcnkzOTYzNjU0MTk="
+    category_name: "Comments"
+    category_id: "DIC_kwDOF6AOa84B_2bl"
+    theme: "preferred_color_scheme"
 
 search: true
 search_full_content: true
@@ -70,7 +74,6 @@ defaults:
       author_profile: true
       read_time: true
       comments: true
-      share: true
       related: true
   # _pages
   - scope:
