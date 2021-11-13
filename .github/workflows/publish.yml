@@ -9,6 +9,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
 
+    steps:
     - name: Install SSH key
       uses: shimataro/ssh-key-action@v2.3.1
       with:
